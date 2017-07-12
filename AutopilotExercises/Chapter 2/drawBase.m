@@ -5,6 +5,5 @@ function handle = drawBase(y, width, height, gap, handle, mode)
         handle = fill(X,Y,'m', 'EraseMode', mode);
     else
         set(handle, 'XData',X,'Ydata',Y)
- 
     end
    

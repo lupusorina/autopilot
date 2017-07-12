@@ -11,7 +11,7 @@ function drawPendulum(u)
     persistent base_handle
     persistent rod_handle
     
-    if t == 0,
+    if t == 0
         figure(1), clf
         track_width = 3;
         plot([-track_width, track_width], [0,0], 'k')
@@ -22,4 +22,5 @@ function drawPendulum(u)
     else
         drawBase(y, width, height, gap, base_handle);
         drawRod(y, theta, L, gap, height, rod_handle);
+    end
     
