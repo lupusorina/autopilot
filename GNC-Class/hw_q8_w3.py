@@ -1,19 +1,26 @@
-from sympy import *
+import sympy as sp
 import matplotlib.pyplot as plt
 from numpy import *
 import numpy as np
 
-def fct(matrix, index):
-    t = Symbol('t')
-    omega = np.array([[20 * np.sin(0.1 * t)],
+def calc_integral_analytics(matrix, index):
+    t = sp.Symbol('t')
+    omega = np.array([[20 * sp.sin(0.1 * t)],
                       [20 * 0.01 * t],
-                      [20 * np.cos(0.1 * t)]])
+                      [20 * sp.cos(0.1 * t)]])
 
     beta_dot = np.dot(mx_beta[index, : ], omega)
     print(beta_dot)
-    integrate(beta_dot, t)
+    sp.integrate(beta_dot, t)
 
-    return test1
+
+def calc_integral_numeric(t, matrix, index):
+    omega = np.array([[20 * sp.sin(0.1 * t)],
+                      [20 * 0.01 * t],
+                      [20 * sp.cos(0.1 * t)]])
+
+    beta_dot = np.dot(mx_beta[index, : ], omega)
+    return beta_dot
 
 beta0 = 0.408248
 beta1 = 0
@@ -29,4 +36,4 @@ mx_beta = array([[ -beta1,  -beta2,  -beta3],
 #print (beta0*beta0 + beta1*beta1 + beta2*beta2 + beta3*beta3)
 
 index = 0
-fcn(mx_beta, index)
+calc_integral_analytics(mx_beta, index)
